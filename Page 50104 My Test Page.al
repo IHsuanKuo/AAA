@@ -43,7 +43,16 @@ page 50104 "My Test Page"
 
                 trigger OnAction()
                 begin
-                    excute_Result;
+                    excute_Result();
+                end;
+            }
+            action("Test Codeunit")
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                begin
+                    test_codeunit();
                 end;
             }
             action(ActionName)
@@ -68,5 +77,10 @@ page 50104 "My Test Page"
     procedure excute_Result();
     begin
         result := value1 > value2;
+    end;
+
+    procedure test_codeunit();
+    begin
+        codeunit.Run(50105);
     end;
 }
