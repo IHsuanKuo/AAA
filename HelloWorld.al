@@ -4,8 +4,25 @@
 
 pageextension 50100 CustomerListExt extends "Customer List"
 {
+    /*
     trigger OnOpenPage();
     begin
         Message('Hello world,this is test');
     end;
+    */
+
+    actions
+    {
+        addlast(processing)
+        {
+            action("ResetTop10Cust")
+            {
+                Caption = 'Reset Top 10 Cust. Cred. Limit';
+                trigger OnAction();
+                begin
+                    Codeunit.Run(50110);
+                end;
+            }
+        }
+    }
 }
